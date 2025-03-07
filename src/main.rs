@@ -2,12 +2,19 @@
 // All Rights Reserved
 
 use std::boxed::Box;
+use std::env;
 use std::fs;
 use syn::Item;
 use syn::*;
 
 fn main() {
-    let src = fs::read_to_string("/Users/lyoko/Projects/builder/src/utils.rs").unwrap();
+    let args: Vec<String> = env::args().collect();
+
+    if args.len() < 2 {
+        panic!("Usage: sfr <*.rs>");
+    }
+
+    let src = fs::read_to_string(&args[1]).unwrap();
     let ast = syn::parse_file(&src).unwrap();
     let shebang = ast.shebang;
     for attr in ast.attrs {}
