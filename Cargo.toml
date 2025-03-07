@@ -2,6 +2,8 @@
 name = "same_file_references"
 version = "0.1.0"
 edition = "2021"
+description = "Returns number of same-file function calls within a single Rust source file"
+license = "MIT"
 
 [dependencies]
 syn = {version="2.0.0", features=["full", "extra-traits"]}
